@@ -19,6 +19,7 @@ const Person_Query=gql`
     title 
     Link
     id 
+
   }
 
 }`
@@ -35,7 +36,7 @@ Link
 }
 `
 
-const IndexPage = () => {
+const Home = () => {
   let inputtitle
   let inputname
   const[addperson]=useMutation(Add_person)
@@ -130,4 +131,4 @@ return <tr key={d.id}>
      
   
 
-export default IndexPage
+export default Home
