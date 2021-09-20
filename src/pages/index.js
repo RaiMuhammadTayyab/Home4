@@ -47,7 +47,7 @@ const Home = () => {
        title:inputtitle.value,
        name:inputname.value
       },
-      refetchQueries:[{query:Person_Query},{query:Person_LinkQuery}],
+     // refetchQueries:[{query:Person_Query},{query:Person_LinkQuery}],
   
     
       })    
