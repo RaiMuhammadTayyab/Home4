@@ -5,7 +5,6 @@ const faunadb = require('faunadb')
 const typeDefs = gql`
   type Query {
    person:[record]
-   person_link:linked 
   }
 
   type Mutation {
