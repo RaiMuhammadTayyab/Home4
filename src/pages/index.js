@@ -115,7 +115,7 @@ return <tr key={d.id}>
       </tr>
       <tbody>
         <tr>
-          <td>{Personquery.data.person_link.Link}</td>
+          <td>Hello world</td>
         </tr>
       </tbody>
     </thead>
