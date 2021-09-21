@@ -53,11 +53,11 @@ catch(err){
   console.log(err)
 
 }
-   },
+   }
 
+  },
 
-
-person_link:async(root,args,context)=>{
+/*person_link:async(root,args,context)=>{
   try{
 var adminClient=new faunadb.Client({secret:'fnAERNN6VmACQrN3xcoHwWuQfBeG2cTe5RBLWpOu'})
 const result= await adminClient.query(
@@ -78,6 +78,7 @@ console.log(err)
 
   }
 },
+*/
 Mutation: {
   addperson: async (_,{name,title})=>{
     try{
