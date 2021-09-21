@@ -2,7 +2,7 @@
 import  React from "react"
 import {useQuery,useMutation} from '@apollo/client';
 import gql from 'graphql-tag'
-const Person_LinkQuery=gql`
+/*const Person_LinkQuery=gql`
 {
 person_link {
   Link
@@ -11,7 +11,7 @@ person_link {
 }
 
 }
-`
+`*/
 const Person_Query=gql`
 {
   person {
@@ -47,7 +47,7 @@ const Home = () => {
        title:inputtitle.value,
        name:inputname.value
       },
-     // refetchQueries:[{query:Person_Query},{query:Person_LinkQuery}],
+      refetchQueries:[{query:Person_Query}]//{query:Person_LinkQuery}],
   
     
       })    
@@ -57,11 +57,11 @@ const Home = () => {
     }
 
   const Persons=useQuery(Person_Query)
-  const Personquery=useQuery(Person_LinkQuery)
+  //const Personquery=useQuery(Person_LinkQuery)
   console.log(Persons.data)
-  console.log(Personquery.data)
-  const errors = Persons.error || Personquery.error;
-  const loading = Persons.loading || Personquery.loading;
+ // console.log(Personquery.data)
+  const errors = Persons.error //|| Personquery.error;
+  const loading = Persons.loading //|| Personquery.loading;
   
   if (loading) {
     return <p>loading...</p>;
