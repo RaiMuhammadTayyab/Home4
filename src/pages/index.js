@@ -56,20 +56,20 @@ const Home = () => {
   inputname.value= ""
     }
 
-  const Persons=useQuery(Person_Query)
+  const{loading,error,data}=useQuery(Person_Query)
   //const Personquery=useQuery(Person_LinkQuery)
-  console.log(Persons.data)
+ // console.log(Persons.data)
  // console.log(Personquery.data)
-  const errors = Persons.error //|| Personquery.error;
-  const loading = Persons.loading //|| Personquery.loading;
+ // const errors = Persons.error //|| Personquery.error;
+//  const loading = Persons.loading //|| Personquery.loading;
   
   if (loading) {
     return <p>loading...</p>;
   }
-    if (errors){
+    if (error){
       return  <h3 style={{ color: 'red' }}>errors</h3>
     }
-    console.log(errors)
+    console.log(error)
 
   return (
     <div> 
@@ -95,7 +95,7 @@ const Home = () => {
 </tr>
   </thead>
   <tbody>
-{Persons.data.person.map(d=>{
+{data.person.map(d=>{
 return <tr key={d.id}>
   
   <td> {d.name}</td>
