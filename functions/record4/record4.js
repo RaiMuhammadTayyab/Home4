@@ -35,9 +35,8 @@ const result= await adminClient.query(
 q.Map(
   q.Paginate(
     q.Match(
-      q.Index('links'), ) ),
-  q.Lambda(x=>q.Get(x))
-  )
+      q.Index('links'))),
+  q.Lambda(x=>q.Get(x)))
 )
   return result.data.map(d=>{
     return {
@@ -54,8 +53,6 @@ catch(err){
 
 }
    },
-
-  
 
 person_link:async(root,args,context)=>{
   try{
