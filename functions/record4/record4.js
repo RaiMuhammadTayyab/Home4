@@ -5,6 +5,7 @@ const faunadb = require('faunadb')
 const typeDefs = gql`
   type Query {
    person:[record]
+   person_link:linked
   }
 
   type Mutation {
@@ -18,15 +19,15 @@ const typeDefs = gql`
     name: String!
     title:String!
     Link:String!
-  }` 
- /* type linked{
+  } 
+  type linked{
     name: String!
     title:String!
     Link:String!
-  }*/
+  }`
 
 const resolvers = {
-  /*Query: {
+  Query: {
    person:async(root,args,context)=>{
       try{
 var adminClient=new faunadb.Client({secret:'fnAERNN6VmACQrN3xcoHwWuQfBeG2cTe5RBLWpOu'})
@@ -52,9 +53,9 @@ catch(err){
   console.log(err)
 
 }
-   }
+   },
 
-  },
+  
 
 person_link:async(root,args,context)=>{
   try{
@@ -77,7 +78,7 @@ console.log(err)
 
   }
 },
-*/
+
 Mutation: {
   addperson: async (_,{name,title})=>{
     try{
