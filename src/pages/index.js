@@ -11,7 +11,7 @@ person_link {
 }
 
 }
-`*/
+`
 const Person_Query=gql`
 {
   person {
@@ -23,7 +23,7 @@ const Person_Query=gql`
   }
 
 }`
-
+*/
 const Add_person=gql`
 mutation addperson ($title:String!, $name:String!){
 addperson(title:$title, name:$name){
@@ -47,7 +47,7 @@ const Home = () => {
        title:inputtitle.value,
        name:inputname.value
       },
-      refetchQueries:[{query:Person_Query}]//{query:Person_LinkQuery}],
+      //refetchQueries:[{query:Person_Query}]//{query:Person_LinkQuery}],
   
     
       })    
@@ -56,8 +56,8 @@ const Home = () => {
   inputname.value= ""
     }
 
-  const{loading,error,data}=useQuery(Person_Query)
-  //const Personquery=useQuery(Person_LinkQuery)
+ /* const{loading,error,data}=useQuery(Person_Query)
+  const Personquery=useQuery(Person_LinkQuery)
  // console.log(Persons.data)
  // console.log(Personquery.data)
  // const errors = Persons.error //|| Personquery.error;
@@ -69,7 +69,7 @@ const Home = () => {
     if (error){
       return  <h3 style={{ color: 'red' }}>errors</h3>
     }
-    console.log(error)
+    console.log(error)*/
 
   return (
     <div> 
@@ -95,18 +95,17 @@ const Home = () => {
 </tr>
   </thead>
   <tbody>
-{data.person.map(d=>{
-return <tr key={d.id}>
+ <tr>
   
-  <td> {d.name}</td>
+  <td> Tayyab</td>
   
-  <td> {d.title}</td>
-  <td> {d.Link}</td>
+  <td> GM</td>
+  <td> qrst</td>
 
 </tr>
 
 
-})}
+
   </tbody>  
   
     <thead>
