@@ -27,8 +27,8 @@ const typeDefs = gql`
   }`
 
 const resolvers = {
- /* Query: {
-   person:async(root,args,context)=>{
+ Query: {
+ /*  person:async(root,args,context)=>{
       try{
 var adminClient=new faunadb.Client({secret:'fnAERNN6VmACQrN3xcoHwWuQfBeG2cTe5RBLWpOu'})
 const result= await adminClient.query(
@@ -54,7 +54,7 @@ catch(err){
 
 }
    }
-
+*/
 person_link:async(root,args,context)=>{
   try{
 var adminClient=new faunadb.Client({secret:'fnAERNN6VmACQrN3xcoHwWuQfBeG2cTe5RBLWpOu'})
@@ -76,7 +76,7 @@ console.log(err)
 
   }
 },
-*/
+
 Mutation: {
   addperson: async (_,{name,title})=>{
     try{
