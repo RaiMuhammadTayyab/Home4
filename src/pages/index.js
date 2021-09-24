@@ -13,7 +13,7 @@ person_link {
 
 }
 `
-const Person_Query=gql`
+/*const Person_Query=gql`
 {
   person {
     name 
@@ -24,7 +24,7 @@ const Person_Query=gql`
 
   }
 
-}`
+}`*/
 const Add_person=gql`
 mutation addperson ($title:String!, $name:String!){
 addperson(title:$title, name:$name){
