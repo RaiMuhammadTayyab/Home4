@@ -37,7 +37,8 @@ q.Map(
     q.Match(
       q.Index('links'))),
   q.Lambda(x=>q.Get(x)))
-)
+  )
+
   return result.data.map(d=>{
     return {
       title:d.data.title,
