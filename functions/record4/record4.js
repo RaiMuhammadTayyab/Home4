@@ -28,7 +28,7 @@ const typeDefs = gql`
 
 const resolvers = {
   Query: {
-   person:async(root,args,context)=>{
+  /* person:async(root,args,context)=>{
       try{
 var adminClient=new faunadb.Client({secret:'fnAERNN6VmACQrN3xcoHwWuQfBeG2cTe5RBLWpOu'})
 const result= await adminClient.query(
@@ -39,7 +39,7 @@ q.Map(
   q.Lambda(x=>q.Get(x)))
   )
 
-  return result.data.map(d=>{
+   result.data.map(d=>{
     return {
       title:d.data.title,
       name:d.data.name,
@@ -54,14 +54,14 @@ catch(err){
 
 }
    }
-
-/*person_link:async(root,args,context)=>{
+*/
+person_link:async(root,args,context)=>{
   try{
 var adminClient=new faunadb.Client({secret:'fnAERNN6VmACQrN3xcoHwWuQfBeG2cTe5RBLWpOu'})
 const result= await adminClient.query(
   q.Get(
 q.Match(
-  q.Index('BookMarks-Link-des') ) )
+  q.Index('newlink') ) )
 )
   return {
  title: result.data.title,
@@ -74,7 +74,7 @@ console.log(err)
 
 }
 
-  }*/
+  }
 },
 
 Mutation: {
