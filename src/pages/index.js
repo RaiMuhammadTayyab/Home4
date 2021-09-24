@@ -2,7 +2,7 @@
 import  React from "react"
 import {useQuery,useMutation} from '@apollo/client';
 import gql from 'graphql-tag'
-const Person_LinkQuery=gql`
+/*const Person_LinkQuery=gql`
 {
 person_link {
   Link
@@ -13,7 +13,7 @@ person_link {
 
 }
 `
-/*const Person_Query=gql`
+const Person_Query=gql`
 {
   person {
     name 
@@ -48,7 +48,7 @@ const Home = () => {
        title:inputtitle.value,
        name:inputname.value
       },
-     // refetchQueries:[{query:Person_Query}],
+     //refetchQueries:[{query:Person_LinkQuery}],
   
     
       })    
@@ -57,9 +57,9 @@ const Home = () => {
   inputname.value= ""
     }
 
- //const Persons=useQuery(Person_Query)
+ /*const Persons=useQuery(Person_Query)
   const Personquery=useQuery(Person_LinkQuery)
-  //console.log(Persons.data)
+  console.log(Persons.data)
  console.log(Personquery.data)
   const errors = Personquery.error;
  const loading = Personquery.loading;
@@ -70,7 +70,7 @@ const Home = () => {
     if (errors){
       return  <h3 style={{ color: 'red' }}>errors</h3>
     }
-    console.log(errors)
+    console.log(errors)*/
 
   return (
     <div> 
@@ -98,10 +98,10 @@ const Home = () => {
   <tbody>
 
  <tr>
-  <td>{Personquery.data.person_link.name} </td>
+  <td>Personquery.data.person_link.name </td>
   
-  <td>{Personquery.data.person_link.title}</td>
-  <td>{Personquery.data.person_link.Link} </td>
+  <td>Personquery.data.person_link.title</td>
+  <td>Personquery.data.person_link.Link </td>
 
 </tr>
 
@@ -115,10 +115,10 @@ const Home = () => {
       </thead>
       <tbody>
         <tr>
-        <td>{Personquery.data.person_link.name} </td>
+        <td>data.person_link.name </td>
   
-      <td>{Personquery.data.person_link.title}</td>
-       <td>{Personquery.data.person_link.Link} </td>
+      <td>Personquery.data.person_link.title</td>
+       <td>Personquery.data.person_link.Link </td>
         </tr>
       </tbody>
     
