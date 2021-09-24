@@ -57,7 +57,7 @@ const Home = () => {
 
  const Persons=useQuery(Person_Query)
   const Personquery=useQuery(Person_LinkQuery)
- // console.log(Persons.data)
+  console.log(Persons.data)
  // console.log(Personquery.data)
   const errors = Personquery.error||Persons.error;
  const loading = Personquery.loading||Persons.loading;
@@ -88,22 +88,22 @@ const Home = () => {
       <table border="2">
   <thead>
     <tr>
-<th>{JSON.stringify(Persons.data.person)}</th>
+<th>Name</th>
 <th>TITLE</th>
 <th>LINKS</th>
 </tr>
   </thead>
   <tbody>
- <tr>
-  
-  <td> Tayyab</td>
-  
-  <td> GM</td>
-  <td> qrst</td>
+    {Persons.data.person.map(d=>{
+    return <tr key={d.id}>
+  <td>{d.title} </td>
+  <td>{d.name} </td>
+  <td> {d.Link}</td>
 
 </tr>
 
-
+})
+}
 
   </tbody>  
   
@@ -111,14 +111,12 @@ const Home = () => {
       <tr>
         <th>Link</th>
       </tr>
+      </thead>
       <tbody>
         <tr>
-          <td>{Personquery.data.person_link.title}</td>
+          <td>{Personquery.data.person_link.Link}</td>
         </tr>
       </tbody>
-    </thead>
-    
-    
     
     </table>                                                                                                                                                                                                                                                                                                                                                       
 
