@@ -2,6 +2,7 @@ const { ApolloServer, gql } = require('apollo-server-lambda')
 const shortid = require('shortid')
 const faunadb = require('faunadb')
   q = faunadb.query
+require('dotenv').config()
 const typeDefs = gql`
   type Query {
    person:[record]
@@ -30,7 +31,7 @@ const resolvers = {
  Query: {
  /*  person:async(root,args,context)=>{
       try{
-var adminClient=new faunadb.Client({secret:'fnAERNN6VmACQrN3xcoHwWuQfBeG2cTe5RBLWpOu'})
+var adminClient=new faunadb.Client({secret:'process.env.netlify_key})
 const result= await adminClient.query(
 q.Map(
   q.Paginate(
@@ -56,8 +57,9 @@ catch(err){
    }
 */
 person_link:async(root,args,context)=>{
-  try{
-var adminClient=new faunadb.Client({secret:'fnAERNN6VmACQrN3xcoHwWuQfBeG2cTe5RBLWpOu'})
+  if (process.env.netlify_key) {
+    var adminClient=new faunadb.Client({secret:process.env.netlify_key})
+  try {
 const result= await adminClient.query(
   q.Get(
 q.Match(
@@ -73,14 +75,21 @@ catch(err){
 console.log(err)
 
 }
-
-  }
+  
+  } 
+  else {
+    console.log('No FAUNADB_SERVER_SECRET in .env file, skipping Container Creation');
+  } 
+  
+}
+ 
 },
 
 Mutation: {
   addperson: async (_,{name,title})=>{
+    if (process.env.netlify_key) {
+    var adminClient=new faunadb.Client({secret:process.env.netlify_key})
     try{
-var adminClient=new faunadb.Client({secret:"fnAERNN6VmACQrN3xcoHwWuQfBeG2cTe5RBLWpOu"})
 const result= await adminClient.query(
   q.Create(
     q.Collection('link'),
@@ -99,7 +108,10 @@ return result.data.data
       console.log(error)
     }
   }
-
+  else {
+    console.log('No FAUNADB_SERVER_SECRET in .env file in mutation, skipping Container Creation');
+  }
+  }
   }
 }
 
