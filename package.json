@@ -12,17 +12,7 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "👇 ABOUT-bootstrap-command": "💡 scaffold and setup FaunaDB #",
-    "bootstrap": "node ./scripts/bootstrap-fauna-database.js",
-    "👇 ABOUT-start-command": "💡 start the app and server #",
-    "start:app": "react-scripts start",
-    "start:server": "netlify-lambda serve functions -c ./webpack.config.js",
-    "👇 ABOUT-prebuild-command": "💡 before 'build' runs, run the 'bootstrap' command #",
-    "prebuild": "echo 'setup faunaDB' && npm run bootstrap",
-    "👇 ABOUT-build-command": "💡 build the react app and the serverless functions #",
-    "build:app": "react-scripts build",
-    "build:functions": "netlify-lambda build functions -c ./webpack.config.js"
+    "clean": "gatsby clean"
   },
   "dependencies": {
     "@apollo/client": "^3.4.11",
