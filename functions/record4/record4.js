@@ -59,17 +59,21 @@ catch(err){
 person_link:async(root,args,context)=>{
   if (process.env.netlify_key) {
     var adminClient=new faunadb.Client({secret:process.env.netlify_key})
+ console.log("netlify secret:"+ process.env.netlify_key)
   try {
 const result= await adminClient.query(
   q.Get(
 q.Match(
   q.Index('newlink') ) )
 )
+console.log(result)
   return {
  title: result.data.title,
  name:result.data.name,
  Link:result.data.Link
 }
+
+
   }
 catch(err){
 console.log(err)
