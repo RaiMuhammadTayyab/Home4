@@ -99,10 +99,10 @@ const Home = () => {
   <tbody>
 
  <tr>
-  <td>{data.person_link.name} </td>
+  <td>{'data.person_link.name'} </td>
   
-  <td>{data.person_link.title}</td>
-  <td>{data.person_link.Link} </td>
+  <td>{'data.person_link.title'}</td>
+  <td>{'data.person_link.Link'} </td>
 
 </tr>
 
