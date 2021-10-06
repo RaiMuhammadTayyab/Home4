@@ -28,8 +28,8 @@ const typeDefs = gql`
   }`
 
 const resolvers = {
- Query: {
- /*  person:async(root,args,context)=>{
+ /*Query: {
+  person:async(root,args,context)=>{
       try{
 var adminClient=new faunadb.Client({secret:'process.env.netlify_key})
 const result= await adminClient.query(
@@ -55,7 +55,7 @@ catch(err){
 
 }
    }
-*/
+
 person_link:async(root,args,context)=>{
   if (process.env.netlify_key) {
     var adminClient=new faunadb.Client({secret:process.env.netlify_key})
@@ -88,7 +88,7 @@ console.log(err)
 }
  
 },
-
+*/
 Mutation: {
   addperson: async (_,{name,title})=>{
     if (process.env.netlify_key) {
