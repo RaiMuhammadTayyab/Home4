@@ -21,8 +21,9 @@
     "faunadb": "^4.4.1",
     "gatsby": "^3.13.0",
     "gatsby-plugin-gatsby-cloud": "^3.1.0",
+    "gatsby-plugin-netlify": "^3.14.0",
     "graphql": "^15.5.3",
-    "netlify-cli": "^6.9.30",
+    "netlify-cli": "^6.10.4",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "shortid": "^2.2.16"
