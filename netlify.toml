@@ -1,4 +1,4 @@
 [Build]
 command="npm run build"
-functions="functions"
-publish="public"
+functions="/functions"
+publish="/public"

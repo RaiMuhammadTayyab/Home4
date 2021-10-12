@@ -3,8 +3,8 @@ import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
 
 export const client = new ApolloClient({
   link: new HttpLink({
-    uri: './netlify/functions/record4',
-    fetch,
+    uri: '/.netlify/functions/record4',
+    fetch,          
   }),
   cache: new InMemoryCache()
 });

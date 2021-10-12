@@ -3,10 +3,11 @@ const shortid = require('shortid')
 const faunadb = require('faunadb')
   q = faunadb.query
 require('dotenv').config()
+var adminClient=new faunadb.Client({secret:process.env.netlify_key})
 const typeDefs = gql`
   type Query {
-   person:[record]
-   person_link:linked
+   person:[record]!
+   person_link:linked!
   }
 
   type Mutation {
@@ -21,26 +22,25 @@ const typeDefs = gql`
     title:String!
     Link:String!
   } 
-  type linked{
-    name: String!
-    title:String!
-    Link:String!
+  type linked {
+    name: String
+    title:String
+    Link:String
   }`
 
 const resolvers = {
- /*Query: {
+ Query: {
   person:async(root,args,context)=>{
-      try{
-var adminClient=new faunadb.Client({secret:'process.env.netlify_key})
+    if (process.env.netlify_key) {
+      try {
 const result= await adminClient.query(
 q.Map(
   q.Paginate(
     q.Match(
-      q.Index('links'))),
+      q.Index('links'),)),
   q.Lambda(x=>q.Get(x)))
   )
-
-   result.data.map(d=>{
+   return result.data.map(d=>{
     return {
       title:d.data.title,
       name:d.data.name,
@@ -55,7 +55,12 @@ catch(err){
 
 }
    }
-
+   else {
+    console.log('No FAUNADB_SERVER_SECRET in .env file, skipping Container Creation');
+  } 
+  }
+},
+/*
 person_link:async(root,args,context)=>{
   if (process.env.netlify_key) {
     var adminClient=new faunadb.Client({secret:process.env.netlify_key})
@@ -92,7 +97,6 @@ console.log(err)
 Mutation: {
   addperson: async (_,{name,title})=>{
     if (process.env.netlify_key) {
-    var adminClient=new faunadb.Client({secret:process.env.netlify_key})
     try{
 const result= await adminClient.query(
   q.Create(
