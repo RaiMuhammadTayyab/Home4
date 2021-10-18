@@ -1,4 +1,4 @@
 [Build]
-command="gatsby build"
+command="yarn build"
 functions="/functions"
 publish="/public"
