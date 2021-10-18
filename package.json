@@ -33,10 +33,14 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RaiMuhammadTayyab/Home4.git"
+    
+    
+    
+    
   },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/RaiMuhammadTayyab/Home4/issues"
-  }
-
+  },
+}
 
