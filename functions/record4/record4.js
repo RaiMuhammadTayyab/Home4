@@ -6,8 +6,8 @@ require('dotenv').config()
 var adminClient=new faunadb.Client({secret:process.env.netlify_key})
 const typeDefs = gql`
   type Query {
-   person:[record]!
-   person_link:linked!
+   person:[record!]
+   person_link:linked
   }
 
   type Mutation {
@@ -37,17 +37,18 @@ const result= await adminClient.query(
 q.Map(
   q.Paginate(
     q.Match(
-      q.Index('links'),)),
-  q.Lambda(x=>q.Get(x)))
+      q.Index('links'))),
+  q.Lambda(x =>q.Get(x))
+  )
   )
    return result.data.map(d=>{
-    return {
+     return {
       title:d.data.title,
       name:d.data.name,
       id:d.ts,
       Link:d.data.Link
 
-  }})
+      }})
 }
     
 catch(err){
