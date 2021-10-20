@@ -96,12 +96,12 @@ const Home = () => {
   </thead>
   
   <tbody>
+    
   {data.person.map(d=>{
-    return <tr key={d.id}>
+   return <tr key={d.id}>
   <td>{d.name} </td>
   <td>{d.title}</td>
   <td>{d.Link} </td>
-
 </tr>
   })}
 
